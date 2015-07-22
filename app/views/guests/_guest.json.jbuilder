@@ -1,0 +1,1 @@
+json.(guest, :id, :invitation_id, :first_name, :last_name, :attending, :approved, :created_at, :updated_at)

@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # this causes the templates to try and reload the page
   # get "*path" => "application#index"
 
-  scope '/api' do
+  scope '/api', defaults: { format: :json } do
+    resources :events
     resources :invitations
     resources :guests
   end
