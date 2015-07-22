@@ -1,0 +1,37 @@
+---
+guests:
+- first_name: Anne
+  last_name: Arnold
+  attending: true
+  approved: true
+  invitation_email: arnold@gmail.com
+- first_name: Bob
+  last_name: Arnold
+  attending: true
+  approved: true
+  invitation_email: arnold@gmail.com
+- first_name: Jerry
+  last_name: Arnold
+  attending: false
+  approved: true
+  invitation_email: arnold@gmail.com
+- first_name: Zachary
+  last_name: Arnold
+  attending: true
+  approved: false
+  invitation_email: arnold@gmail.com
+- first_name: Zibby
+  last_name: Deininger
+  attending: true
+  approved: true
+  invitation_email: deininger@gmail.com
+- first_name: Baxter
+  last_name: Deininger
+  attending: true
+  approved: true
+  invitation_email: deininger@gmail.com
+- first_name: Larb
+  last_name: Deininger
+  attending: true
+  approved: true
+  invitation_email: deininger@gmail.com
