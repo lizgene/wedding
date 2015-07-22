@@ -1,0 +1,44 @@
+<!-- The ng-controller directive will scope methods and data of a specific controller to its child content. -->
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3" ng-controller="Invitation as invitation">
+    <h1>{{ invitation.message }}</h1>
+
+    <div ng-repeat="invitation in invitation.invitations | orderBy:'opened_at'">
+      <h2>{{ invitation.title }}</h2>
+      <ul class="list-group list-unstyled">
+        
+        <div guest-profile ng-repeat="guest in invitation.guests"></div>
+
+      </ul>
+
+      <div class="row well" ng-controller="Guest as guest",>
+        <div class="col-sm-4">
+          <h2>New Guest for {{ invitation.title }}</h2>
+          <form name="newGuest" class="form" ng-submit="newGuest.$valid && guest.addGuest(invitation)" novalidation>
+            <div>newGuest is {{newGuest.$valid}}</div>
+
+            <%= hidden_field_tag :approved, false %>
+            
+            <div class="form-group">
+              <%= text_field_tag :first_name, "First Name", class: "form-control", "ng-model" => "guest.guest.first_name", required: true %>
+              <%= text_field_tag :last_name, "Last Name", class: "form-control", "ng-model" => "guest.guest.last_name", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= submit_tag "Save", class: "btn btn-primary" %>
+            </div>
+          
+          </form>
+        </div>
+
+        <blockquote class="col-sm-4 col-sm-offset-1">
+          <p>First Name: <u>{{ guest.guest.first_name }}</u></p>
+          <p>Last Name: <u>{{ guest.guest.last_name }}</u></p>
+        </blockquote>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

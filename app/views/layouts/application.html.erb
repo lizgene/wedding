@@ -1,0 +1,15 @@
+<!-- The ng-app directive will run the wedding app when the document loads. -->
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Wedding</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
