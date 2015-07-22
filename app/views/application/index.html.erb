@@ -6,9 +6,9 @@
     <div ng-repeat="invitation in invitation.invitations | orderBy:'opened_at'">
       <h2>{{ invitation.title }}</h2>
       <ul class="list-group list-unstyled">
-        
-        <div guest-profile ng-repeat="guest in invitation.guests"></div>
 
+ 
+          <guest-profile ng-repeat="guest in invitation.guests"></guest-profile>
       </ul>
 
       <div class="row well" ng-controller="Guest as guest",>

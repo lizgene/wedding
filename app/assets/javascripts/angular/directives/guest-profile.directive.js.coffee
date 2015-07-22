@@ -2,7 +2,7 @@
   guestProfile = ()->
     console.log("in directive")
     directive = {
-      restrict: 'A',
+      restrict: 'E',
       templateUrl: 'new-template.html'
     }
 

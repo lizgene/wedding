@@ -1,1 +1,15 @@
-NEW TEMPLATE
+<li class="list-item media">
+<div class="media-left">
+  <a href="#">
+    <img class="media-object" ng-src="{{ guest.images[0].thumb }}">
+  </a>
+</div>
+<div class="media-body">
+  <h4 class="media-heading">{{ guest.first_name | uppercase }} {{ guest.last_name | uppercase }}</h4>
+
+  <button>
+    <span ng-show="{{ guest.approved }}">Unapprove</span>
+    <span ng-hide="{{ guest.approved }}">Approve</span>
+  </button>
+</div>
+</li>
