@@ -7,17 +7,20 @@
       <h2>{{ invitation.title }}</h2>
       <ul class="list-group list-unstyled">
 
- 
-          <guest-profile ng-repeat="guest in invitation.guests"></guest-profile>
+        <guest-profile ng-repeat="guest in invitation.guests"></guest-profile>
+
       </ul>
 
-      <div class="row well" ng-controller="Guest as guest",>
+      <div class="row well" ng-controller="GuestCtrl as guest",>
         <div class="col-sm-4">
           <h2>New Guest for {{ invitation.title }}</h2>
           <form name="newGuest" class="form" ng-submit="newGuest.$valid && guest.addGuest(invitation)" novalidation>
             <div>newGuest is {{newGuest.$valid}}</div>
 
-            <%= hidden_field_tag :approved, false %>
+            <input type="hidden" name="approved" ng-model="guest.guest.approved" ng-init="guest.guest.approved=1" value="{{ guest.guest.approved }}" />
+
+            <input type="hidden" name="invitation_id" ng-model="guest.guest.invitation_id" ng-init="guest.guest.invitation_id=invitation.id " value="{{guest.guest.invitation_id}}">
+     
             
             <div class="form-group">
               <%= text_field_tag :first_name, "First Name", class: "form-control", "ng-model" => "guest.guest.first_name", required: true %>

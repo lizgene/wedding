@@ -16,7 +16,12 @@ gem 'angular-rails-templates'
 gem 'bower-rails'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+
+group :development do
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'spring'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

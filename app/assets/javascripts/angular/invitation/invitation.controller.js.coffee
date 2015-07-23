@@ -6,7 +6,7 @@
 
     vm = @
     vm.message = "Wedding Guest List"
-    vm.invitations = []
+    vm.invitations = [] # initialize with an empty array
     
     request = $http.get('/api/invitations').success (data) ->
       vm.invitations = data['invitations']
