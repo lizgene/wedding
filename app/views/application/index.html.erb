@@ -1,6 +1,6 @@
 <!-- The ng-controller directive will scope methods and data of a specific controller to its child content. -->
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3" ng-controller="Invitation as invitation">
+  <div class="col-sm-6 col-sm-offset-3" ng-controller="InvitationCtrl as invitation">
     <h1>{{ invitation.message }}</h1>
 
     <div ng-repeat="invitation in invitation.invitations | orderBy:'opened_at'">

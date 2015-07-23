@@ -1,18 +1,19 @@
 (->
-  Invitation = ($routeParams, Invitation)->
+  InvitationCtrl = ($http)->
 
-    Invitation
-      .$inject = ['$routeParams', 'Invitation']
+    InvitationCtrl
+      .$inject = ['$http']
 
     vm = @
     vm.message = "Wedding Guest List"
-    vm.sendMessage = ()->
-
-    vm.invitations = Invitation.index()
+    vm.invitations = []
+    
+    request = $http.get('/api/invitations').success (data) ->
+      vm.invitations = data['invitations']
 
     return
 
   angular
     .module('app')
-    .controller('Invitation', Invitation)
+    .controller('InvitationCtrl', InvitationCtrl)
 )()

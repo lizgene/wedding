@@ -1,10 +1,10 @@
 (->
-  Invitation = ($resource)->
+  InvitationService = ($http)->
 
-  Invitation
-    .$inject = ['$resource']
+  InvitationService
+    .$inject = ['$http']
 
-  return $resource("/api/invitations/:id", {id: "@id"},
+  return $http("/api/invitations/:id", {id: "@id"},
     {
       'create':  { method: 'POST' },
       'index':   { method: 'GET', isArray: true },
@@ -16,8 +16,20 @@
 
   angular
     .module('app')
-    .factory('Invitation', Invitation)
+    .factory('InvitationService', InvitationService)
 )()
+
+# angular.module('app').factory('InvitationService', ['$resource' ($resource) ->
+    
+#     return $resource("/api/invitations/:id", {id: "@id"},
+#       {
+#         'create':  { method: 'POST' },
+#         'index':   { method: 'GET', isArray: true },
+#         'show':    { method: 'GET', isArray: false },
+#         'update':  { method: 'PUT' },
+#         'destroy': { method: 'DELETE' }
+#       }
+# ])
 
 
 # var sharkweekServices = angular.module('sharkweekServices', ['ngResource']);
