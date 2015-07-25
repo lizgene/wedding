@@ -8,5 +8,5 @@
 
     return directive
 
-  app.directive('guestProfile', guestProfile)
+  angular.module('app.directives').directive('guestProfile', guestProfile)
 )()

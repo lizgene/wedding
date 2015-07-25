@@ -1,7 +1,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require lodash
 //= require angular/angular
+//= require underscore
+//= require restangular/dist/restangular
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
 //= require angular-route/angular-route

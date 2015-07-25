@@ -11,20 +11,20 @@
 
       </ul>
 
-      <div class="row well" ng-controller="GuestCtrl as guest",>
+      <div class="row well">
         <div class="col-sm-4">
           <h2>New Guest for {{ invitation.title }}</h2>
-          <form name="newGuest" class="form" ng-submit="newGuest.$valid && guest.addGuest(invitation)" novalidation>
-            <div>newGuest is {{newGuest.$valid}}</div>
+          <form name="addGuest" class="form" ng-submit="addGuest.$valid && invitation.addGuest()" novalidation>
+            <div>Form is {{addGuest.$valid}}</div>
 
-            <input type="hidden" name="approved" ng-model="guest.guest.approved" ng-init="guest.guest.approved=1" value="{{ guest.guest.approved }}" />
+            <input type="hidden" name="approved" ng-model="invitation.guest.approved" ng-init="invitation.guest.approved=1" value="{{ invitation.guest.approved }}" />
 
-            <input type="hidden" name="invitation_id" ng-model="guest.guest.invitation_id" ng-init="guest.guest.invitation_id=invitation.id " value="{{guest.guest.invitation_id}}">
+            <input type="hidden" name="invitation_id" ng-model="invitation.guest.invitation_id" ng-init="invitation.guest.invitation_id=invitation.id " value="{{invitation.guest.invitation_id}}">
      
             
             <div class="form-group">
-              <%= text_field_tag :first_name, "First Name", class: "form-control", "ng-model" => "guest.guest.first_name", required: true %>
-              <%= text_field_tag :last_name, "Last Name", class: "form-control", "ng-model" => "guest.guest.last_name", required: true %>
+              <%= text_field_tag :first_name, "First Name", class: "form-control", "ng-model" => "invitation.guest.first_name", required: true %>
+              <%= text_field_tag :last_name, "Last Name", class: "form-control", "ng-model" => "invitation.guest.last_name", required: true %>
             </div>
 
             <div class="form-group">
@@ -35,8 +35,8 @@
         </div>
 
         <blockquote class="col-sm-4 col-sm-offset-1">
-          <p>First Name: <u>{{ guest.guest.first_name }}</u></p>
-          <p>Last Name: <u>{{ guest.guest.last_name }}</u></p>
+          <p>First Name: <u>{{ invitation.guest.first_name }}</u></p>
+          <p>Last Name: <u>{{ invitation.guest.last_name }}</u></p>
         </blockquote>
       </div>
 
