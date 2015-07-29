@@ -14,6 +14,7 @@ angular.module('app.services').factory('Invitation', ['Restangular', function (R
   return {
     index: function() { 
       // create the Restangular object
+      window.restang = Restangular.all('invitations').getList().$object;
       return Restangular.all('invitations').getList().$object;
     },
     show: function(invitationId) {

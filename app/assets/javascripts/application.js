@@ -8,5 +8,5 @@
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
 //= require angular-route/angular-route
-//= require_tree ../templates
+//= require angular-animate/angular-animate
 //= require_tree .

@@ -23,5 +23,7 @@ module Wedding
     config.assets.paths << Rails.root.join("bower_components")
     config.assets.paths << Rails.root.join("bower_components","bootstrap-sass-official","assets","fonts")
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+
+    config.angular_templates.ignore_prefix  = %w(angular/templates/)
   end
 end

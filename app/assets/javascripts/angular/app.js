@@ -33,6 +33,7 @@ app.config(function($httpProvider, RestangularProvider) {
     var extractedData;
 
     if (operation === "getList") {
+      window.mydata = data;
       extractedData = data[what];
       extractedData.error = data.error;
 

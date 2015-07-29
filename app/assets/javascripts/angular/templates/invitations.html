@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1 class="box-one">{{ invitation.message }}</h1>
+
+    <tabset>
+      <tab ng-repeat="invitation in invitation.invitations | orderBy:'opened_at'" heading="{{ invitation.title }}">
+        <ul class="list-group list-unstyled">
+          <guest-profile ng-repeat="guest in invitation.guests"></guest-profile>
+        </ul>
+
+        <div class="row well">
+          <div class="col-sm-4">
+            <h2>New Guest for {{ invitation.title }}</h2>
+            <form name="addGuest" class="form" ng-submit="addGuest.$valid && invitation.addGuest()" novalidation>
+              <div>Form is {{addGuest.$valid}}</div>
+
+              <input type="hidden" name="approved" ng-model="invitation.guest.approved" ng-init="invitation.guest.approved=1" value="{{ invitation.guest.approved }}" />
+
+              <input type="hidden" name="invitation_id" ng-model="invitation.guest.invitation_id" ng-init="invitation.guest.invitation_id=invitation.id " value="{{invitation.guest.invitation_id}}">
+       
+              
+              <div class="form-group">
+                <%= text_field_tag :first_name, "First Name", class: "form-control", "ng-model" => "invitation.guest.first_name", required: true %>
+                <%= text_field_tag :last_name, "Last Name", class: "form-control", "ng-model" => "invitation.guest.last_name", required: true %>
+              </div>
+
+              <div class="form-group">
+                <%= submit_tag "Save", class: "btn btn-primary" %>
+              </div>
+            
+            </form>
+          </div>
+
+          <blockquote class="col-sm-4 col-sm-offset-1">
+            <p>First Name: <u>{{ invitation.guest.first_name }}</u></p>
+            <p>Last Name: <u>{{ invitation.guest.last_name }}</u></p>
+          </blockquote>
+        </div>
+
+      </tab>
+    </tabset>
+
+
+  </div>
+</div>
