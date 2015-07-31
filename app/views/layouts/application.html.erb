@@ -6,10 +6,13 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <base href="/">
+
+<!-- This will cause crawler bot to request links with _escaped_fragment_ param so that your server can recognize the crawler and serve a HTML snapshots.  -->
+  <meta name="fragment" content="!" />
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -63,9 +66,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div ng-view>
 <%= yield %>
-</div>
 
 FOOTER
 
