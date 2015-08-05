@@ -10,4 +10,35 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.find_by_id(params[:id])
   end
 
+  # POST /api/invitations
+  def create
+    @invitation = Invitation.create(invitation_params)
+    render :show
+  end
+
+  # PUT /api/invitations/:id
+  def update
+    @invitation = Invitation.find_by_id(params[:id])
+
+    if ! @invitation.update_attributes(invitation_params)
+      return error_saving(@invitation.errors.full_messages.to_sentence)
+    end
+
+    render :show
+  end
+
+  # DELETE /api/invitations/:id
+  def destroy
+    @invitation = Invitation.find_by_id(params[:id])
+    @invitation.destroy
+
+    render :show
+  end
+
+  private
+
+  def invitation_params
+    params.require(:invitation).permit(:title, :email, :event_id, :sent_at, :opened_at, :replied_at, :notes)
+  end
+
 end

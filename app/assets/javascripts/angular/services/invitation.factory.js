@@ -1,24 +1,21 @@
-// angular.module('app.services').factory("Invitation", ["Restangular", function(Restangular) {
-//   return Restangular("/api/invitations/:id", { id: "@id" },
-//     {
-//       'create':  { method: 'POST' },
-//       'index':   { method: 'GET', isArray: false },
-//       'show':    { method: 'GET', isArray: false },
-//       'update':  { method: 'PUT' },
-//       'destroy': { method: 'DELETE' }
-//     }
-//   );
-// }])
-
 angular.module('app.services').factory('Invitation', ['Restangular', function (Restangular) {
   return {
-    index: function() { 
-      console.log("in index")
-      // create the Restangular object
+    index: function() {
       return Restangular.all('invitations').getList().$object;
     },
     show: function(invitationId) {
-      return Restangular.one('invitations', invitationId).get()
+      return Restangular.one('invitations', invitationId).get().then(_.bind(function(response) {
+        return response;
+      }));
+    },
+    create: function(invitation) {
+      return Restangular.all('invitations').post(invitation)
+    },
+    update: function(invitation) {
+      return Restangular.one('invitations', invitation.id).put(invitation)
+    },
+    delete: function(invitationId) {
+      return Restangular.one('invitations', invitationId).remove()
     }
   };
 }]);

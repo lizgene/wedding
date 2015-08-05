@@ -8,7 +8,8 @@ var app = angular.module('app', [
   'app.filters',
   'ngRoute',
   'templates',
-  'restangular'
+  'restangular',
+  'ui.router'
   ]);
 
 angular.module('app.services', ['restangular']);

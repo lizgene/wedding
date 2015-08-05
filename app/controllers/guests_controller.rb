@@ -16,6 +16,26 @@ class GuestsController < ApplicationController
     render :show
   end
 
+
+  # PUT /api/guests/:id
+  def update
+    @guest = Guest.find_by_id(params[:id])
+
+    if ! @guest.update_attributes(guest_params)
+      return error_saving(@guest.errors.full_messages.to_sentence)
+    end
+
+    render :show
+  end
+
+  # DELETE /api/guests/:id
+  def destroy
+    @guest = Guest.find_by_id(params[:id])
+    @guest.destroy
+
+    render :show
+  end
+
   private
 
   def guest_params

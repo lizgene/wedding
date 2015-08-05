@@ -1,0 +1,7 @@
+
+  <td>{{ guest.first_name | uppercase }}</td>
+  <td>{{ guest.last_name | uppercase }}</td>
+  <td>{{ guest.attending }}</td>
+  <td>{{ guest.approved }}</td>
+  <td><a ng-href="/guests/{{guest.id}}" class="btn btn-info" >Edit</a></td>
+  <td><a ng-click="invitationsCtrl.deleteGuest(guest)" class="btn btn-danger" >Delete</a></td>

@@ -12,7 +12,6 @@ app.config(function($httpProvider, RestangularProvider) {
       window.mydata = data;
       extractedData = data[what];
       extractedData.error = data.error;
-
     } else {
       extractedData = data;
     }

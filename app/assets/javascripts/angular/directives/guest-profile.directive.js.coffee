@@ -1,9 +1,8 @@
 (->
   guestProfile = ()->
-    console.log("in directive")
     directive = {
-      restrict: 'E',
-      templateUrl: 'new-template.html'
+      restrict: 'A',
+      templateUrl: 'admin/guest-profile.html'
     }
 
     return directive

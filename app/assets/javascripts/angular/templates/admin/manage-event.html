@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1 class="box-one">Manage Invitations For "This Event"</h1>
+
+    <input ng-model="query" type="text" placeholder="Search Invitations" class="form-control">
+
+    <div ng-controller="invitationListCtrl as invitationList">
+
+      <div  class="row well"
+            ng-repeat="invitation in invitationList.invitations | filter: { title: query } | orderBy: 'title' ">
+        <h2 class="pull-left">{{ invitation.title }}</h2>
+        <blockquote class="col-sm-4 col-sm-offset-1">
+          <p>{{ invitation.total_guests }} guests</p>
+        </blockquote>
+        <a ng-href="/invitations/{{invitation.id}}" class="btn btn-primary">Edit</a>
+      </div>
+
+
+      <div class="row well">
+        <h2>New Invitation for "This Event"</h2>
+        <form name="addInvitation" class="form" ng-submit="addInvitation.$valid && invitationList.addInvitation(invitationList.newInvitation)" novalidation>
+          <h3>Form is {{addInvitation.$valid}}</h3>
+
+          <!-- need: notes email title event_id. event id will come from event model -->
+          <input type="hidden" name="event_id" ng-model="invitationList.newInvitation.event_id" ng-init="invitationList.newInvitation.event_id=event.id " value="{{invitationList.newInvitation.event_id}}">
+
+          <label class="control-label" for="title">Title</label>
+          <input type="text" name="title" ng-model="invitationList.newInvitation.title" value="{{invitationList.newInvitation.title}}" required class="form-control">
+
+          <label class="control-label" for="email">Email</label>
+          <input type="email" name="email" ng-model="invitationList.newInvitation.email" value="{{invitationList.newInvitation.email}}" required class="form-control">
+
+          <label class="control-label" for="notes">Notes</label>
+          <textarea name="notes" ng-model="invitationList.newInvitation.notes" value="{{invitationList.newInvitation.notes}}" class="form-control"></textarea>
+
+          <input type="submit" value="Save" class="btn btn-primary">
+        </form>
+
+        <blockquote class="col-sm-4 col-sm-offset-1">
+          <p>Title: <u>{{ invitationList.newInvitation.title }}</u></p>
+          <p>Email: <u>{{ invitationList.newInvitation.email }}</u></p>
+        </blockquote>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>

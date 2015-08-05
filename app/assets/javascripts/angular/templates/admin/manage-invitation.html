@@ -1,0 +1,64 @@
+<a class="btn btn-primary" ui-sref="admin">Go Back</a>
+
+<h1>{{ invitation.title }}</h1>
+
+<div class="table-responsive center-block">
+<table class="table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Attending?</th>
+      <th>Approved?</th>
+      <th><th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="guest in invitationsCtrl.invitation.guests">
+    <td data-title="First Name">{{ guest.first_name | uppercase }}</td>
+    <td>{{ guest.last_name | uppercase }}</td>
+    <td>{{ guest.attending ? "yes" : "N/A" }}</td>
+    <td>{{ guest.approved ? "approved" : "N/A" }}</td>
+    <td><a ng-href="/guests/{{guest.id}}" class="btn btn-info" >Edit</a></td>
+    <td><a ng-click="invitationsCtrl.deleteGuest(guest)" class="btn btn-danger" >Delete</a></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="row well">
+  <div class="col-sm-4">
+    <h2>New Guest for {{ invitationsCtrl.invitation.title }}</h2>
+    <form name="addGuest" class="form" ng-submit="addGuest.$valid && invitationsCtrl.addGuest(invitationsCtrl.newGuest)" novalidation>
+      <div>Form is {{addGuest.$valid}}</div>
+
+      <input type="hidden" name="approved" ng-model="invitationsCtrl.newGuest.approved" ng-init="invitationsCtrl.newGuest.approved=1" value="{{ invitationsCtrl.newGuest.approved }}" />
+
+      {{invitationsCtrl.invitation.id}}
+
+      <input  type="hidden" name="invitation_id" ng-model="invitationsCtrl.newGuest.invitation_id" value="{{invitationsCtrl.invitation.id }}">
+
+      <!-- <input type="hidden" name="invitation_id" ng-model="invitationsCtrl.newGuest.invitation_id" value="{{invitationsCtrl.newGuest.invitation_id}}"> -->
+
+
+      <div class="form-group">
+        <input type="text" name="first_name" ng-model="invitationsCtrl.newGuest.first_name" value="{{invitationsCtrl.newGuest.first_name}}" required class="form-control">
+
+        <input type="text" name="last_name" ng-model="invitationsCtrl.newGuest.last_name" value="{{invitationsCtrl.newGuest.last_name}}" required class="form-control">
+
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary">
+      </div>
+
+    </form>
+  </div>
+
+  <blockquote class="col-sm-4 col-sm-offset-1">
+    <p>First Name: <u>{{ invitationsCtrl.newGuest.first_name }}</u></p>
+    <p>Last Name: <u>{{ invitationsCtrl.newGuest.last_name }}</u></p>
+  </blockquote>
+</div>
