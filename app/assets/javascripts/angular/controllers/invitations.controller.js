@@ -6,30 +6,7 @@ angular.module('app.controllers').controller('invitationsCtrl',
 
     vm.invitation = Invitation.show($stateParams.id).then(function(response) {
       vm.invitation = response.invitation
-      vm.newGuest = { "invitation_id": response.invitation.id };
     });
-
-    vm.addGuest = function(newGuest){
-      Guest.create(newGuest).then(function(response) {
-        vm.invitation.guests.push(response.guest);
-      });
-      vm.newGuest = {};
-    };
-
-    vm.deleteGuest = function(guest){
-      var index = vm.invitation.guests.indexOf(guest);
-
-      Guest.delete(guest.id).then(function(response) {
-        vm.invitation.guests.splice(index, 1);
-      });
-    };
-
-    vm.updateGuest = function(guest){
-      Guest.update(guest).then(function(response) {
-        vm.invitation.guests.push(response.guest);
-      });
-      vm.newGuest = {};
-    };
 
     vm.destroyInvitation = function(invitationId){
       Invitation.delete(invitationId);

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   scope '/api', defaults: { format: :json } do
     resources :events
-    resources :invitations
+    resources :invitations do
+      resources :guests
+    end
     resources :guests
   end
 

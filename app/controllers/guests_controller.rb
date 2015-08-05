@@ -2,7 +2,7 @@ class GuestsController < ApplicationController
 
   # GET /api/guests
   def index
-    @guests = Guest.all
+    @guests = params[:invitation_id] ? Guest.where(invitation_id: params[:invitation_id]) : Guest.all
   end
 
   # GET /api/guests/:id

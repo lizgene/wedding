@@ -16,6 +16,12 @@ angular.module('app.services').factory('Invitation', ['Restangular', function (R
     },
     delete: function(invitationId) {
       return Restangular.one('invitations', invitationId).remove()
+    },
+    guests: function(invitationId) {
+
+      var guests = Restangular.one('invitations', invitationId).getList('guests').$object;
+      window.guests = guests;
+      return guests;
     }
   };
 }]);
