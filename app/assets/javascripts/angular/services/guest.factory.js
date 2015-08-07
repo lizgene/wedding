@@ -11,7 +11,7 @@ angular.module('app.services').factory('Guest', ['Restangular', function (Restan
       return Restangular.all('guests').post(guest)
     },
     update: function(guest) {
-      return Restangular.one('guests', guest.id).put(guest)
+      guest.put()
     },
     delete: function(guestId) {
       return Restangular.one('guests', guestId).remove()

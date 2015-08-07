@@ -20,4 +20,10 @@ angular.module('app.controllers').controller('guestListCtrl',
         vm.guests.splice(vm.guests.indexOf(guest), 1);
       });
     };
+
+    vm.updateGuest = function(guest){
+      Guest.update(guest);
+    };
+
+
 }]);

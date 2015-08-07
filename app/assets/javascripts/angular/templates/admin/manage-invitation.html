@@ -19,7 +19,7 @@
           <tbody>
             <tr ng-repeat="guest in guestList.guests">
               <td data-title="First Name">{{ guest.first_name | uppercase }}</td>
-              <td>{{ guest.last_name | uppercase }}</td>
+              <td><div edit-on-click="guest.last_name" save-callback="guestList.updateGuest(guest)"></div></td>
               <td>{{ guest.attending ? "yes" : "N/A" }}</td>
               <td>{{ guest.approved ? "approved" : "N/A" }}</td>
               <td><a ng-href="/guests/{{guest.id}}" class="btn btn-info" >Edit</a></td>
