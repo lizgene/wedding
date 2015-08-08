@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require lodash
 //= require angular/angular
 //= require underscore
 //= require angular-rails-templates

@@ -10,7 +10,7 @@ angular.module('app.controllers').controller('invitationListCtrl',
     vm.newInvitation = {};
 
     vm.addInvitation = function(newInvitation){
-      Invitation.create(newInvitation).then(function(response) {
+      Invitation.create({invitation: newInvitation}, function(response) {
         vm.invitations.push(response.invitation);
       });
       vm.newInvitation = {};

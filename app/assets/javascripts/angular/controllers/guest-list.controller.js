@@ -13,8 +13,8 @@ angular.module('app.controllers').controller('guestListCtrl',
     vm.addGuest = function(newGuest){
       Guest.create({guest: newGuest}, function(response) {
         vm.guests.push(response.guest);
-      })
-      vm.newGuest = {};
+      });
+      vm.newGuest = { "invitation_id": $stateParams.id };
     };
 
     vm.removeGuest = function(guest){
