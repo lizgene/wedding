@@ -4,26 +4,27 @@ angular.module('app.controllers').controller('guestListCtrl',
 
     var vm = this;
 
-    vm.guests = Invitation.guests($stateParams.id);
+    Guest.query({invitation_id: $stateParams.id}, function(data) {
+      vm.guests = data.guests;
+    });
 
     vm.newGuest = { "invitation_id": $stateParams.id };
 
     vm.addGuest = function(newGuest){
-      Guest.create(newGuest).then(function(response) {
+      Guest.create({guest: newGuest}, function(response) {
         vm.guests.push(response.guest);
-      });
+      })
       vm.newGuest = {};
     };
 
     vm.removeGuest = function(guest){
-      Guest.delete(guest.id).then(function(){
+      Guest.delete({id: guest.id}, function(){
         vm.guests.splice(vm.guests.indexOf(guest), 1);
       });
     };
 
     vm.updateGuest = function(guest){
-      Guest.update(guest);
+      Guest.update({id: guest.id, guest: guest});
     };
-
 
 }]);

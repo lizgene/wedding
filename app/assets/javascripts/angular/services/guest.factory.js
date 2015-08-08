@@ -1,20 +1,14 @@
-angular.module('app.services').factory('Guest', ['Restangular', function (Restangular) {
-  return {
-    index: function() {
-      // create the Restangular object
-      return Restangular.all('guests').getList().$object;
-    },
-    show: function(guestId) {
-      return Restangular.one('guests', invitationId).get()
-    },
-    create: function(guest) {
-      return Restangular.all('guests').post(guest)
-    },
-    update: function(guest) {
-      guest.put()
-    },
-    delete: function(guestId) {
-      return Restangular.one('guests', guestId).remove()
+angular.module('app.services').factory('Guest', ['$resource', function ($resource) {
+
+  return $resource("/api/guests/:id", { id: "@id" },
+    {
+      'query':   { method: 'GET', isArray: false },
+      'create':  { method: 'POST' },
+      'index':   { method: 'GET', isArray: false },
+      'show':    { method: 'GET', isArray: false },
+      'update':  { method: 'PUT' },
+      'destroy': { method: 'DELETE' }
     }
-  };
+  );
+
 }]);

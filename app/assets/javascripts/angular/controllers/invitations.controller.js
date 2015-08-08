@@ -4,8 +4,8 @@ angular.module('app.controllers').controller('invitationsCtrl',
 
     var vm = this;
 
-    vm.invitation = Invitation.show($stateParams.id).then(function(response) {
-      vm.invitation = response.invitation
+    Invitation.show({id: $stateParams.id}, function(data){
+      vm.invitation = data.invitation
     });
 
     vm.destroyInvitation = function(invitationId){

@@ -14,6 +14,7 @@ gem 'font-awesome-rails'
 gem 'underscore-rails'
 gem 'angular-rails-templates'
 gem 'bower-rails'
+gem 'angular_rails_csrf' #support for $http service built-in CSRF protection
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -34,4 +35,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

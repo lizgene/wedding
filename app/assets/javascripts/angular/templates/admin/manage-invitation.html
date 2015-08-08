@@ -1,7 +1,7 @@
 <a class="btn btn-primary" ui-sref="admin">Go Back</a>
 
 <div ng-controller="invitationsCtrl as invitationsCtrl">
-  <h1>{{ invitationsCtrl.invitation.title }}</h1>
+  <h1><div edit-on-click="invitationsCtrl.invitation.title" save-callback="invitationsCtrl.updateInvitation(invitationsCtrl.invitation)"></h1>
 
   <div ng-controller="guestListCtrl as guestList">
     <div class="table-responsive center-block">
@@ -18,11 +18,10 @@
           </thead>
           <tbody>
             <tr ng-repeat="guest in guestList.guests">
-              <td data-title="First Name">{{ guest.first_name | uppercase }}</td>
+              <td data-title="First Name"><div edit-on-click="guest.first_name" save-callback="guestList.updateGuest(guest)"></div></td>
               <td><div edit-on-click="guest.last_name" save-callback="guestList.updateGuest(guest)"></div></td>
-              <td>{{ guest.attending ? "yes" : "N/A" }}</td>
-              <td>{{ guest.approved ? "approved" : "N/A" }}</td>
-              <td><a ng-href="/guests/{{guest.id}}" class="btn btn-info" >Edit</a></td>
+              <td><input type="checkbox" ng-model="guest.attending" ng-change="guestList.updateGuest(guest)"></td>
+              <td><input type="checkbox" ng-model="guest.approved" ng-change="guestList.updateGuest(guest)"></td>
               <td><a ng-click="guestList.removeGuest(guest)" class="btn btn-danger" >Delete</a></td>
             </tr>
           </tbody>

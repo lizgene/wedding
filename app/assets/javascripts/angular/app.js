@@ -8,11 +8,11 @@ var app = angular.module('app', [
   'app.filters',
   'ngRoute',
   'templates',
-  'restangular',
+  'ngResource',
   'ui.router'
   ]);
 
-angular.module('app.services', ['restangular']);
+angular.module('app.services', []);
 
 angular.module('app.directives', []);
 

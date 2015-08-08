@@ -1,10 +1,12 @@
 angular.module('app.controllers').controller('invitationListCtrl',
-  ['Invitation',
-  function(Invitation) {
+  ['Invitation', '$resource',
+  function(Invitation, $resource) {
 
     var vm = this;
 
-    vm.invitations = Invitation.index();
+    Invitation.query(function(data) {
+      vm.invitations = data.invitations;
+    })
     vm.newInvitation = {};
 
     vm.addInvitation = function(newInvitation){
