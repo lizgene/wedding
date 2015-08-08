@@ -15,4 +15,10 @@ angular.module('app.controllers').controller('invitationListCtrl',
       });
       vm.newInvitation = {};
     };
+
+    vm.deleteInvitation = function(invitation){
+      Invitation.delete({id: invitation.id}, function(){
+        vm.invitations.splice(vm.invitations.indexOf(invitation), 1);
+      });
+    };
 }]);

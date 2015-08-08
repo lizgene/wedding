@@ -1,6 +1,6 @@
 angular.module('app.controllers').controller('invitationsCtrl',
-  ['Invitation', 'Guest', '$stateParams',
-  function(Invitation, Guest, $stateParams) {
+  ['Invitation', 'Guest', '$stateParams', '$state',
+  function(Invitation, Guest, $stateParams, $state) {
 
     var vm = this;
 
