@@ -15,7 +15,7 @@ gem 'underscore-rails'
 gem 'angular-rails-templates'
 gem 'bower-rails'
 gem 'angular_rails_csrf' #support for $http service built-in CSRF protection
-gem 'rails_12factor'
+gem 'rails_12factor' #support for heroku asset serving
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -36,3 +36,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.2.0" #specify version for heroku
