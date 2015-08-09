@@ -1,0 +1,9 @@
+
+
+  <!-- where to put the steps-->
+  <!-- <div class="animate-switch-container" ng-switch on="multiStepForm.currentStep" ng-transclude>
+  </div> -->
+
+  <ng-transclude></ng-transclude>
+
+  <button ng-click="multiStepForm.nextStep(multiStepForm.currentStep);">Next {{multiStepForm.currentStep.number}}</button>

@@ -6,9 +6,7 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider
     .state("home",
       { url: "/",
-        templateUrl: "admin/manage-event.html",
-        controller: "manageEventCtrl",
-        controllerAs: "event" })
+        templateUrl: "home/intro.html" })
     .state("cast",
       { url: "/cast",
         templateUrl: "home/cast.html" })
@@ -23,7 +21,9 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
         templateUrl: "home/guide.html" })
     .state("rsvp",
       { url: "/rsvp",
-        templateUrl: "home/rsvp.html" })
+        templateUrl: "home/rsvp.html",
+        controller: 'rsvpCtrl',
+        controllerAs: 'rsvp' })
     .state("faq",
       { url: "/faq",
         templateUrl: "home/faq.html" })

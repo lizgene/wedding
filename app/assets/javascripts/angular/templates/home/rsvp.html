@@ -1,1 +1,27 @@
-<h1>RSVP</h1>
+<!-- form.html -->
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+
+  <h1 class="text-center">RSVP</h1>
+
+
+    <multi-step-form on-submit="rsvp.processRsvp()">
+      <step number="1" on-change="rsvp.validateEmail()">
+        Email
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" name="email" ng-model="rsvp.invitation.email">
+        </div>
+      </step>
+
+      <step number="2">
+        Guests
+      </step>
+
+      <step number="3">
+        Notes
+      </step>
+    </multi-step-form>
+
+</div>
+</div>

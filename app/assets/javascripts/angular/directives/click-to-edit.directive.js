@@ -1,33 +1,3 @@
-// angular.module('app.directives').directive('editOnClick', function(){
-//     console.log("in directive");
-//
-//   var editorTemplate = '<span ng-click="edit()" ng-hide="editing">{{ value }}</span><input autofocus ng-model="value" ng-blur="save()" ng-show="editing">';
-//
-//   //By adding a ? before the directive name, we’re saying it’s optional, which prevents Angular from throwing an error if ngModel isn’t found
-//   return {
-//     restrict: 'A',
-//     scope: { saveCallback: '&',
-//              value: '='},
-//     require: "?ngModel", //include the controller from ngModel into the link function
-//     template: editorTemplate,
-//     link: function(scope, element, attrs, ngModel) {
-//
-//       scope.value = attrs.value;
-//
-//       scope.editing = false;
-//
-//       scope.edit = function(){
-//         scope.editing = true;
-//       }
-//
-//       scope.save = function(){
-//         scope.editing = false;
-//       }
-//
-//     }
-//   }
-// });
-
 app.directive("editOnClick", function() {
     var editorTemplate = '<div class="click-to-edit">' +
         '<div ng-hide="view.editorEnabled">' +
