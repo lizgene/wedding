@@ -6,4 +6,6 @@
 
   <ng-transclude></ng-transclude>
 
-  <button ng-click="multiStepForm.nextStep(multiStepForm.currentStep);">Next {{multiStepForm.currentStep.number}}</button>
+  <button ng-click="multiStepForm.nextStep(multiStepForm.currentStep);" ng-hide="multiStepForm.complete">Next {{multiStepForm.currentStep.number}}</button>
+
+  <div ng-show="multiStepForm.complete">Complete!</div>

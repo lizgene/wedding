@@ -39,6 +39,7 @@ angular.module('app.directives').directive('multiStepForm', function(){
         })
 
         if(newStepId === vm.steps.length) {
+          vm.complete = true;
           vm.callback()
         } else {
           vm.currentStep = nextActiveStep;
