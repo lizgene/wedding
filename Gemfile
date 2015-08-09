@@ -15,6 +15,7 @@ gem 'underscore-rails'
 gem 'angular-rails-templates'
 gem 'bower-rails'
 gem 'angular_rails_csrf' #support for $http service built-in CSRF protection
+gem 'rails_12factor'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
