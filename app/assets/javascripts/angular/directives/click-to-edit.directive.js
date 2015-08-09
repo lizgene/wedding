@@ -20,7 +20,7 @@ app.directive("editOnClick", function() {
             value: "=editOnClick",
             callback: "&saveCallback"
         },
-        controller: function($scope, $timeout) {
+        controller: ['$scope', '$timeout', function($scope, $timeout) {
             window.value = $scope.value;
             $scope.view = {
                 editableValue: $scope.value,
@@ -43,6 +43,6 @@ app.directive("editOnClick", function() {
                 //need to wait for digest cycle so object is updated
                 $timeout( function(){ $scope.callback(); }, 1000);
             };
-        }
+        }]
     };
 });
