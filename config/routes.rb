@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :events
     resources :invitations do
       resources :guests
+
+      collection do
+        get 'search'
+      end
     end
     resources :guests
   end

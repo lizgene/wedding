@@ -25,9 +25,7 @@ angular.module('app.directives').directive('multiStepForm', function(){
         return vm.currentStep === stepNumber;
       }
 
-      vm.nextStep = function(activeStep) {
-        activeStep.callback() //perform any validation or checks required
-
+      vm.animateStep = function(activeStep) {
         var oldStepId = vm.steps.indexOf(activeStep);
         var newStepId = oldStepId + 1;
         var nextActiveStep = vm.steps[newStepId];
@@ -38,15 +36,28 @@ angular.module('app.directives').directive('multiStepForm', function(){
           }
         })
 
-        if(newStepId === vm.steps.length) {
+        vm.currentStep = nextActiveStep;
+        nextActiveStep.active = true;
+        
+        if(newStepId === (vm.steps.length - 1)) {
           vm.complete = true;
           vm.callback()
-        } else {
-          vm.currentStep = nextActiveStep;
-          nextActiveStep.active = true;
         }
+
       }
 
+      vm.nextStep = function(activeStep) {
+        var promise = activeStep.callback(); //perform any validation or checks required
+        if(promise){
+          promise.then(function(response) {
+            vm.animateStep(activeStep);
+          }, function(value) {
+            alert(value);
+          });
+        } else {
+          vm.animateStep(activeStep);
+        }
+      }
 
     }
   }

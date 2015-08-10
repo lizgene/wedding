@@ -6,20 +6,49 @@
 
 
     <multi-step-form on-submit="rsvp.processRsvp()">
-      <step number="1" on-change="rsvp.validateEmail()">
-        Email
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" name="email" ng-model="rsvp.invitation.email">
+
+      <step number="1" on-change="rsvp.validateEmail(rsvp.invitation.email)">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h2>Welcome to the Party!</h2>
+            <p>Please enter your email address (the same one we sent your invitation to)</p>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" ng-model="rsvp.invitation.email">
+            </div>
+          </div>
         </div>
       </step>
 
       <step number="2">
-        Guests
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h2>Guests</h2>
+            <div class="well" ng-repeat="guest in rsvp.invitation.guests" ng-controller="guestListCtrl as guestList">
+              <h3>{{ guest.first_name }} {{ guest.last_name }}</h3>
+              <p>Attending?<input type="checkbox" ng-model="guest.attending" ng-change="guestList.updateGuest(guest)"></p>
+            </div>
+          </div>
+        </div>
       </step>
 
       <step number="3">
-        Notes
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h2>Anything else we should know?</h2>
+            <p>(Allergies, any special needs for the kids, songs you love)</p>
+            <div class="well" ng-controller="invitationsCtrl as invitationsCtrl">
+              <textarea ng-blur="invitationsCtrl.updateInvitation(rsvp.invitation)" ng-model="rsvp.invitation.notes" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+      </step>
+
+      <step number="4">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h2>Thank you!</h2>
+          </div>
+        </div>
       </step>
     </multi-step-form>
 

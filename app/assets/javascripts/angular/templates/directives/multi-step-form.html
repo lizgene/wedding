@@ -3,9 +3,10 @@
   <!-- where to put the steps-->
   <!-- <div class="animate-switch-container" ng-switch on="multiStepForm.currentStep" ng-transclude>
   </div> -->
-
+<form novalidate>
   <ng-transclude></ng-transclude>
+</form>
 
-  <button ng-click="multiStepForm.nextStep(multiStepForm.currentStep);" ng-hide="multiStepForm.complete">Next {{multiStepForm.currentStep.number}}</button>
-
-  <div ng-show="multiStepForm.complete">Complete!</div>
+<div class="text-center">
+  <button class="btn btn-primary" ng-click="multiStepForm.nextStep(multiStepForm.currentStep);" ng-hide="multiStepForm.complete">Next</button>
+</div>

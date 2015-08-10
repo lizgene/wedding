@@ -4,6 +4,8 @@ angular.module('app.controllers').controller('invitationListCtrl',
 
     var vm = this;
 
+    console.log("in invitations")
+
     Invitation.query(function(data) {
       vm.invitations = data.invitations;
     })

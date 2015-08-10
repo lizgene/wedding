@@ -35,6 +35,17 @@ class InvitationsController < ApplicationController
     render :show
   end
 
+  # GET /api/invitations/:query
+  def search
+    @invitation = Invitation.find_by_email(params[:query])
+
+    if @invitation
+      render :show
+    else
+      render json: { success: false }
+    end
+  end
+
   private
 
   def invitation_params
