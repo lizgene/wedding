@@ -3,7 +3,7 @@ angular.module('app.directives').directive('multiStepForm', function(){
     restrict: 'E', //element
     transclude: true, //do not destroy contents of div
     scope: {
-      value: "=formData",
+      name: "@formName",
       callback: "&onSubmit"
     },
     templateUrl: 'directives/multi-step-form.html',

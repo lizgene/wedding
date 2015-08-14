@@ -5,16 +5,16 @@
   <h1 class="text-center">RSVP</h1>
 
 
-    <multi-step-form on-submit="rsvp.processRsvp()">
+    <multi-step-form on-submit="rsvp.processRsvp()" form-name="rsvpForm">
 
-      <step number="1" on-change="rsvp.validateEmail(rsvp.invitation.email)">
+      <step number="1" on-change="rsvp.findInvitation(rsvp.invitation.email)">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 text-center">
-            <h2>Welcome to the Party!</h2>
-            <p>Please enter your email address (the same one we sent your invitation to)</p>
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" ng-model="rsvp.invitation.email">
-            </div>
+              <h2>Welcome to the Party!</h2>
+              <p>Please enter your email address (the same one we sent your invitation to)</p>
+              <div class="form-group">
+                <input show-errors type="email" class="form-control" name="email" ng-model="rsvp.invitation.email">
+              </div>
           </div>
         </div>
       </step>

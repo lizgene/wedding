@@ -18,7 +18,7 @@ angular.module('app.controllers').controller('rsvpCtrl',
         //eventually use this to send confirmation email to users.
     };
 
-    vm.validateEmail = function(email) {
+    vm.findInvitation = function(email) {
       return $q(function(resolve, reject) {
         setTimeout(function() {
           if (email) {
