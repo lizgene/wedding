@@ -28,7 +28,10 @@
         </table>
       </div>
 
+      {{ guestList.guests | json }}
+      <new-guest guests="guestList.guests"></new-guest>
 
+<!--
       <div class="row well">
         <div class="col-sm-4">
           <h2>New Guest for {{ invitationsCtrl.invitation.title }}</h2>
@@ -41,7 +44,7 @@
 
             <input  type="hidden" name="invitation_id" ng-model="guestList.newGuest.invitation_id" value="{{invitationsCtrl.invitation.id }}">
 
-            <!-- <input type="hidden" name="invitation_id" ng-model="invitationsCtrl.newGuest.invitation_id" value="{{invitationsCtrl.newGuest.invitation_id}}"> -->
+            <input type="hidden" name="invitation_id" ng-model="invitationsCtrl.newGuest.invitation_id" value="{{invitationsCtrl.newGuest.invitation_id}}">
 
 
             <div class="form-group">
@@ -63,7 +66,7 @@
           <p>Last Name: <u>{{ guestList.newGuest.last_name }}</u></p>
         </blockquote>
       </div>
-    </div>
+    </div> -->
 
 
 
