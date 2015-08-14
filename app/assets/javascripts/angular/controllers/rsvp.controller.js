@@ -15,7 +15,7 @@ angular.module('app.controllers').controller('rsvpCtrl',
 
     // function to process the rsvp
     vm.processRsvp = function() {
-        alert('awesome!');
+        //eventually use this to send confirmation email to users.
     };
 
     vm.validateEmail = function(email) {
@@ -25,15 +25,14 @@ angular.module('app.controllers').controller('rsvpCtrl',
             Invitation.search({query: email}).$promise.then(function(data) {
               if(data.invitation) {
                 vm.invitation = data.invitation;
-                console.log("invitation is  " + vm.invitation)
                 resolve("Valid email, found invitation");
               } else {
-                reject("Could not find invitation")
+                reject("Oops! I can't find your invitation. Double-check your email address - it should be the one we sent your invitation to.")
               }
             })
 
           } else {
-            reject('Invalid email');
+            reject('I think your email address has a typo. Double-check and try again.');
           }
         }, 1000);
       });

@@ -8,5 +8,7 @@
 </form>
 
 <div class="text-center">
+  <div class="alert alert-info" ng-show="multiStepForm.errorMessage" role="alert">{{ multiStepForm.errorMessage }}</div>
+  <button class="btn btn-primary" ng-click="multiStepForm.lastStep(multiStepForm.currentStep);" ng-hide="multiStepForm.isFirstStep() || multiStepForm.complete">Back</button>
   <button class="btn btn-primary" ng-click="multiStepForm.nextStep(multiStepForm.currentStep);" ng-hide="multiStepForm.complete">Next</button>
 </div>

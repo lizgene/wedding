@@ -37,4 +37,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-ruby "2.2.0" #specify version for heroku
+ruby "2.2.0"
+
+#specify version for heroku

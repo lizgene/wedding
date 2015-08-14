@@ -21,13 +21,18 @@ angular.module('app.directives').directive('multiStepForm', function(){
         }
       }
 
-      vm.isCurrentStep = function(stepNumber) {
-        return vm.currentStep === stepNumber;
+      vm.isFirstStep = function() {
+        return vm.currentStep.number == 1;
       }
 
-      vm.animateStep = function(activeStep) {
+      vm.isCurrentStep = function(step) {
+        return vm.currentStep === step;
+      }
+
+      vm.animateStep = function(activeStep, goForward) {
         var oldStepId = vm.steps.indexOf(activeStep);
-        var newStepId = oldStepId + 1;
+        //indicates move 1 step forward or back
+        var newStepId = goForward ? (oldStepId + 1) : (oldStepId - 1);
         var nextActiveStep = vm.steps[newStepId];
 
         angular.forEach(vm.steps, function(step) {
@@ -38,24 +43,30 @@ angular.module('app.directives').directive('multiStepForm', function(){
 
         vm.currentStep = nextActiveStep;
         nextActiveStep.active = true;
-        
+
         if(newStepId === (vm.steps.length - 1)) {
           vm.complete = true;
           vm.callback()
         }
+      }
 
+      vm.lastStep = function(activeStep) {
+        vm.animateStep(activeStep, false)
       }
 
       vm.nextStep = function(activeStep) {
         var promise = activeStep.callback(); //perform any validation or checks required
         if(promise){
           promise.then(function(response) {
-            vm.animateStep(activeStep);
+            //hide any error messages if they exist
+            vm.errorMessage = null;
+            vm.animateStep(activeStep, true);
           }, function(value) {
-            alert(value);
+            vm.errorMessage = value;
           });
         } else {
-          vm.animateStep(activeStep);
+          vm.errorMessage = null;
+          vm.animateStep(activeStep, true);
         }
       }
 
