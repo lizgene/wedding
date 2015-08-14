@@ -21,7 +21,8 @@ angular.module('app.directives').directive('showErrors', function(){
       })
 
       var isInvalid = function(element) {
-        return = ((element.classList.contains("ng-invalid") || element.classList.contains("ng-invalid-email")) && !element.classList.contains("ng-pristine"));
+        var invalid = ((element.classList.contains("ng-invalid") || element.classList.contains("ng-invalid-email")) && !element.classList.contains("ng-pristine"));
+        return invalid;
       }
 
 
