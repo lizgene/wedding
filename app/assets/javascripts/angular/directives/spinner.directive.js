@@ -1,7 +1,7 @@
 angular.module('app.directives').directive('spinner', function(){
   return {
     restrict: 'E',
-    replace: true,
+    replace: false,
     template: '<i class="fa fa-spinner fa-spin"></i>',
     scope: { loading: '=loading' },
     transclude: true, //maybe add custom spinner stuff later

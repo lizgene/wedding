@@ -3,6 +3,11 @@ angular.module('app.controllers').controller('rsvpCtrl',
   function(Invitation, Guest, $stateParams, $q) {
     var vm = this;
 
+    vm.teststep = 1;
+    vm.changeTestStep = function() {
+      vm.teststep += 1;
+    }
+
     // we will store all of our form data in this object
     if($stateParams.id) {
       Invitation.show({id: $stateParams.id}, function(data){
@@ -19,20 +24,21 @@ angular.module('app.controllers').controller('rsvpCtrl',
 
     vm.findInvitation = function(email) {
       vm.loading = true;
+      vm.errorMessage = null; //clear any error messages
       return $q(function(resolve, reject) {
         setTimeout(function() {
           if (email) {
             Invitation.search({query: email}).$promise.then(function(data) {
               if(data.invitation) {
                 vm.invitation = data.invitation;
+                vm.changeTestStep()
                 resolve("Valid email, found invitation");
               } else {
-                reject("Oops! I can't find your invitation. Double-check your email address - it should be the one we sent your invitation to.")
+                vm.errorMessage = "Oops! I can't find your invitation. Double-check your email address - it should be the one we sent your invitation to."
+                reject(vm.errorMessage)
               }
             })
 
-          } else {
-            reject('I think your email address has a typo. Double-check and try again.');
           }
           vm.loading = false;
         }, 1000);
