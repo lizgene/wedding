@@ -4,7 +4,7 @@
 
   <h1 class="text-center">RSVP</h1>
 
-
+    <spinner loading="rsvp.loading"></spinner>
     <multi-step-form on-submit="rsvp.processRsvp()" form-name="rsvpForm">
 
       <step number="1" on-change="rsvp.findInvitation(rsvp.invitation.email)">

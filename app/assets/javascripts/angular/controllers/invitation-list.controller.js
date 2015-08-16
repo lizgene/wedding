@@ -1,15 +1,17 @@
 angular.module('app.controllers').controller('invitationListCtrl',
-  ['Invitation', '$resource',
-  function(Invitation, $resource) {
+  ['Invitation', '$resource', '$q',
+  function(Invitation, $resource, $q) {
 
     var vm = this;
 
-    console.log("in invitations")
-
-    Invitation.query(function(data) {
-      vm.invitations = data.invitations;
-    })
     vm.newInvitation = {};
+
+    vm.loading = true;
+
+    Invitation.query().$promise.then(function(data) {
+      vm.loading = false;
+      vm.invitations = data.invitations;
+    });
 
     vm.addInvitation = function(newInvitation){
       Invitation.create({invitation: newInvitation}, function(response) {

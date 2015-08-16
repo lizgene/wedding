@@ -1,7 +1,6 @@
 angular.module('app.controllers').controller('rsvpCtrl',
   ['Invitation', 'Guest', '$stateParams', '$q',
   function(Invitation, Guest, $stateParams, $q) {
-
     var vm = this;
 
     // we will store all of our form data in this object
@@ -19,6 +18,7 @@ angular.module('app.controllers').controller('rsvpCtrl',
     };
 
     vm.findInvitation = function(email) {
+      vm.loading = true;
       return $q(function(resolve, reject) {
         setTimeout(function() {
           if (email) {
@@ -34,6 +34,7 @@ angular.module('app.controllers').controller('rsvpCtrl',
           } else {
             reject('I think your email address has a typo. Double-check and try again.');
           }
+          vm.loading = false;
         }, 1000);
       });
     }

@@ -5,8 +5,9 @@
     <input ng-model="query" type="text" placeholder="Search Invitations" class="form-control">
 
     <div ng-controller="invitationListCtrl as invitationList">
+      <spinner loading="invitationList.loading"></spinner>
 
-      <div  class="row well" ng-repeat="invitation in invitationList.invitations | filter: { title: query } | orderBy: 'title' ">
+      <div ng-hide="invitationList.loading" class="row well" ng-repeat="invitation in invitationList.invitations | filter: { title: query } | orderBy: 'title' ">
         <h2 class="pull-left">{{ invitation.title }}</h2>
         <blockquote class="col-sm-4 col-sm-offset-1">
           <p>{{ invitation.total_guests }} guests</p>
