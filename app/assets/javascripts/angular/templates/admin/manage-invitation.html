@@ -28,46 +28,6 @@
         </table>
       </div>
 
-      {{ guestList.guests | json }}
-      <new-guest guests="guestList.guests"></new-guest>
-
-<!--
-      <div class="row well">
-        <div class="col-sm-4">
-          <h2>New Guest for {{ invitationsCtrl.invitation.title }}</h2>
-          <form name="addGuest" class="form" ng-submit="addGuest.$valid && guestList.addGuest(guestList.newGuest)" novalidation>
-            <div>Form is {{addGuest.$valid}}</div>
-
-            <input type="hidden" name="approved" ng-model="guestList.newGuest.approved" ng-init="guestList.newGuest.approved=1" value="{{ guestList.newGuest.approved }}" />
-
-            {{invitationsCtrl.invitation.id}}
-
-            <input  type="hidden" name="invitation_id" ng-model="guestList.newGuest.invitation_id" value="{{invitationsCtrl.invitation.id }}">
-
-            <input type="hidden" name="invitation_id" ng-model="invitationsCtrl.newGuest.invitation_id" value="{{invitationsCtrl.newGuest.invitation_id}}">
-
-
-            <div class="form-group">
-              <input type="text" name="first_name" ng-model="guestList.newGuest.first_name" value="{{guestList.newGuest.first_name}}" required class="form-control">
-
-              <input type="text" name="last_name" ng-model="guestList.newGuest.last_name" value="{{guestList.newGuest.last_name}}" required class="form-control">
-
-            </div>
-
-            <div class="form-group">
-              <input type="submit" value="Save" class="btn btn-primary">
-            </div>
-
-          </form>
-        </div>
-
-        <blockquote class="col-sm-4 col-sm-offset-1">
-          <p>First Name: <u>{{ guestList.newGuest.first_name }}</u></p>
-          <p>Last Name: <u>{{ guestList.newGuest.last_name }}</u></p>
-        </blockquote>
-      </div>
-    </div> -->
-
-
+      <new-guest guests="guestList.guests" invitation="invitationsCtrl.invitation" approved="true"></new-guest>
 
 </div>

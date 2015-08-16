@@ -1,14 +1,13 @@
 <div class="row well">
-  <div class="col-sm-4">
-    <h2>New Guest for this invite</h2>
+  <div class="col-sm-10 text-center">
+    <h2>New Guest for {{ newGuestCtrl.invitation.title }}</h2>
     <form name="addGuest" class="form" ng-submit="addGuest.$valid && newGuestCtrl.addGuest(newGuestCtrl.newGuest)" novalidation>
-      <div>Form is {{addGuest.$valid}}</div>
 
-      <input type="hidden" name="approved" ng-model="newGuestCtrl.newGuest.approved" ng-init="newGuestCtrl.newGuest.approved=1" value="{{ newGuestCtrl.newGuest.approved }}" />
+      <!-- <input type="hidden" name="approved" ng-model="newGuestCtrl.newGuest.approved" value="{{ newGuestCtrl.newGuest.approved }}" /> -->
 
-      <input  type="hidden" name="invitation_id" ng-model="newGuestCtrl.newGuest.invitation_id">
+      <!-- <input  type="hidden" name="invitation_id" ng-model="newGuestCtrl.newGuest.invitation_id" value="{{ newGuestCtrl.newGuest.invitation_id }}"> -->
 
-      <!-- <input type="hidden" name="invitation_id" ng-model="invitationsCtrl.newGuest.invitation_id" value="{{invitationsCtrl.newGuest.invitation_id}}"> -->
+      <!-- <input type="hidden" name="attending" ng-model="invitationsCtrl.newGuest.attending" value="{{invitationsCtrl.newGuest.attending}}"> -->
 
 
       <div class="form-group">
@@ -24,10 +23,5 @@
 
     </form>
   </div>
-
-  <blockquote class="col-sm-4 col-sm-offset-1">
-    <p>First Name: <u>{{ newGuestCtrl.newGuest.first_name }}</u></p>
-    <p>Last Name: <u>{{ newGuestCtrl.newGuest.last_name }}</u></p>
-  </blockquote>
 </div>
 </div>

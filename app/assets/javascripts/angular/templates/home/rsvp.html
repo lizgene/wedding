@@ -27,7 +27,9 @@
               <h3>{{ guest.first_name }} {{ guest.last_name }}</h3>
               <p>Attending?<input type="checkbox" ng-model="guest.attending" ng-change="guestList.updateGuest(guest)"></p>
             </div>
-            
+
+            <new-guest invitation="rsvp.invitation" guests="rsvp.invitation.guests" approved="false"></new-guest>
+
           </div>
         </div>
       </step>
