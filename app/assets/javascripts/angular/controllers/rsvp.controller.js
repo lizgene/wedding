@@ -1,6 +1,6 @@
 angular.module('app.controllers').controller('rsvpCtrl',
-  ['Invitation', 'Guest', '$stateParams', '$q',
-  function(Invitation, Guest, $stateParams, $q) {
+  ['Invitation', 'Guest', '$stateParams', '$q', '$timeout',
+  function(Invitation, Guest, $stateParams, $q, $timeout) {
     var vm = this;
 
     vm.teststep = 1;
@@ -26,7 +26,7 @@ angular.module('app.controllers').controller('rsvpCtrl',
       vm.loading = true;
       vm.errorMessage = null; //clear any error messages
       return $q(function(resolve, reject) {
-        setTimeout(function() {
+        $timeout(function() {
           if (email) {
             Invitation.search({query: email}).$promise.then(function(data) {
               if(data.invitation) {
@@ -38,7 +38,6 @@ angular.module('app.controllers').controller('rsvpCtrl',
                 reject(vm.errorMessage)
               }
             })
-
           }
           vm.loading = false;
         }, 1000);

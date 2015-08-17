@@ -4,6 +4,9 @@
 
   <h1 class="text-center">RSVP</h1>
   <hr/>
+
+  <alert ng-show="rsvp.errorMessage" message="{{ rsvp.errorMessage }}"></alert>
+
    <div class="animate-switch-container text-center center-block"
      ng-switch on="rsvp.teststep">
      <spinner class="spinner" loading="rsvp.loading"></spinner>
@@ -44,7 +47,6 @@
        <div class="animate-switch" ng-switch-default>
           <h2>Thank you!</h2>
        </div>
-      <div class="alert alert-info" ng-show="rsvp.errorMessage" role="alert">{{ rsvp.errorMessage }}</div>
    </div>
 
 
