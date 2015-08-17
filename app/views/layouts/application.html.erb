@@ -12,13 +12,15 @@
 </head>
 <body>
 
-<%= render partial: "layouts/header" %>
+
 
 <main ng-cloak>
+  <%= render partial: "layouts/header" %>
   <%= yield %>
+  <%= render partial: "layouts/footer" %>
 </main>
 
-<%= render partial: "layouts/footer" %>
+
 
 </body>
 </html>

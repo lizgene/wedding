@@ -1,4 +1,5 @@
-app.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
+  function($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
@@ -6,12 +7,10 @@ app.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', functio
   $stateProvider
     .state("home",
       { url: "/",
-        templateUrl: "home/intro.html",
-        css: 'assets/home/intro.css.scss' })
+        templateUrl: "home/intro.html" })
     .state("cast",
       { url: "/cast",
-        templateUrl: "home/cast.html",
-        css: 'assets/home/cast.css.scss' })
+        templateUrl: "home/cast.html" })
     .state("story",
       { url: "/story",
         templateUrl: "home/story.html" })

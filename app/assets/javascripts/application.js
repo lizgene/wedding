@@ -8,5 +8,4 @@
 //= require angular-route/angular-route
 //= require angular-animate/angular-animate
 //= require angular-ui-router
-//= require angular-css/angular-css
 //= require_tree .
