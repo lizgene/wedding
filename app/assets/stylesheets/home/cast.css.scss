@@ -1,0 +1,87 @@
+//grand budapest
+$gb-mauve: #7C4C4D;
+$gb-peach: #EC9283;
+$gb-pink: #FA6D7A;
+$gb-light-mauve: #C08A85;
+$gb-navy: #534659;
+$gb-teal: #487C87;
+
+//life acquatic palette
+$acquatic-light-yellow: #F3F13A;
+$acquatic-dark-yellow: #D79C00;
+$acquatic-light-blue: #68ABB8;
+$acquatic-dark-blue: #3188A3;
+$acquatic-red: #E50000;
+$acquatic-light-gray: #C3CED0;
+$acquatic-skin-color: #E5C39E;
+
+//fantastic mr fox
+$fox-white: #E7D2B7;
+$fox-yellow: #E0C800;
+$fox-blue: #3E98BB;
+$fox-orange: #DA7300;
+$fox-red: #A40018;
+$fox-burnt-orange: #D07317;
+
+//moonrise kingdom
+$mk-light-blue: #DAECEE;
+$mk-red: #97000E;
+$mk-yellow: #E8B300;
+$mk-gold: #9A711E;
+$mk-blue: #7BB4A5;
+$mk-white: #E2CDA9;
+
+//universal variables
+
+$dark-base: $acquatic-dark-blue;
+$white-base: $acquatic-light-gray;
+$light-base: $acquatic-skin-color;
+$bold-base: $acquatic-red;
+$bright-base: $acquatic-light-blue;
+$highlight-base: $acquatic-light-yellow;
+
+//Wes Anderson Fonts
+$acquatic-headings-font-family: 'Futura BQ';
+$wes-anderson-headings-font-family: 'Futura';
+
+
+  .cast-section {
+    // background: #f4f4f2 url(<%= asset_path 'wedding/teal_texture.jpg' %>) 0 0 repeat;
+    background-color: $white-base;
+
+    .credits {
+      font-family: $wes-anderson-headings-font-family !important;
+      color: $bold-base;
+    }
+    .family {
+      h2 {
+        font-size: 14px;
+      }
+    }
+    .role {
+      font-size: 32px;
+    }
+    #ampersand {
+      padding-top: 55%;
+      font-size: 150px;
+    }
+    @media (max-width: 770px) {
+      i {
+        font-size: 24px;
+        color: $bright-base;
+      }
+      h2 {
+        font-size: 24px;
+      }
+      #ampersand {
+        padding: 0;
+        margin: 0;
+      }
+      .role {
+        font-size: 38px;
+      }
+      .family {
+        h2 { font-size: 24px; }
+      }
+    }
+  }

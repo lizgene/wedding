@@ -10,7 +10,8 @@ var app = angular.module('app', [
   'templates',
   'ngResource',
   'ui.router',
-  'ngAnimate'
+  'ngAnimate',
+  'door3.css'
   ]);
 
 angular.module('app.services', []);

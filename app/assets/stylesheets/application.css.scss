@@ -2,6 +2,10 @@
 @import "bootstrap";
 @import "font-awesome";
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 @media (min-width: 768px) {
     .navbar .navbar-nav {
         display: inline-block;
@@ -15,8 +19,8 @@
 }
 
 main {
-  margin-top: 80px;
-  min-height: 80vh;
+  margin-top: 50px;
+  min-height: 100vh;
 }
 
 

@@ -6,10 +6,12 @@ app.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', functio
   $stateProvider
     .state("home",
       { url: "/",
-        templateUrl: "home/intro.html" })
+        templateUrl: "home/intro.html",
+        css: 'assets/home/intro.css.scss' })
     .state("cast",
       { url: "/cast",
-        templateUrl: "home/cast.html" })
+        templateUrl: "home/cast.html",
+        css: 'assets/home/cast.css.scss' })
     .state("story",
       { url: "/story",
         templateUrl: "home/story.html" })
