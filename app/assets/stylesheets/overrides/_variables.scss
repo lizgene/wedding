@@ -1,0 +1,60 @@
+$gray-dark: #666 !default;
+$gray-light: #a8a8a8 !default;
+
+$brand-primary: #e06e73 !default;
+$brand-info: #7FC0A8 !default;
+
+// light green
+$legend-color: #e5eeeb !default;
+
+// blue
+$blue-color: #3a606e !default;
+
+$font-size-base: 15px !default;
+
+$font-family-sans-serif: Helvetica, Arial, sans-serif !default;
+$font-family-serif: "Museo Slab", "Times New Roman", Times, serif !default;
+$font-family-cursive: "Oleo Script", cursive !default;
+$font-family-icons: "FontAwesome", sans-serif !default;
+
+$headings-font-family: $font-family-serif;
+$headings-font-weight: 500 !default;
+$headings-color: #3a606e !default;
+
+$link-color: $brand-primary !default;
+$link-hover-color: $link-color !default;
+
+$dropdown-link-hover-color: $link-hover-color !default;
+$dropdown-link-hover-bg: #fff !default;
+
+$navbar-height: 56px !default;
+$navbar-default-bg: #eff8f5 !default;
+$navbar-default-border: none !default;
+$navbar-default-link-color: #91aba3 !default;
+$navbar-default-link-hover-color: $link-hover-color !default;
+$navbar-default-link-active-bg: transparent !default;
+$navbar-default-link-active-color: $link-hover-color !default;
+
+$grid-gutter-width: 30px !default;
+$container-desktop: ((960px + $grid-gutter-width)) !default;
+$container-large-desktop: $container-desktop !default;
+
+$input-border: #e1eae7 !default;
+$input-border-radius: 0px !default;
+$input-border-focus: $input-border !default;
+
+$state-info-bg:  #fffbcd !default;
+$state-info-text: #8a6d3b !default;
+
+$table-border-color: #e7f0ee !default;
+
+$thumbnail-border-radius: 0 !default;
+
+// Modals
+$modal-backdrop-bg: #748387 !default;
+$modal-backdrop-opacity: .3 !default;
+$modal-lg: 750px !default;
+
+$hr-border: #ccc !default;
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
