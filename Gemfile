@@ -19,6 +19,12 @@ gem 'rails_12factor' #support for heroku asset serving
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
 group :development do
   gem 'pry'
   gem 'pry-remote'
