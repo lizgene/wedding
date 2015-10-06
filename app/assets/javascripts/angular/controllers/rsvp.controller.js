@@ -8,6 +8,8 @@ angular.module('app.controllers').controller('rsvpCtrl',
       vm.teststep += 1;
     }
 
+    vm.title = "RSVP"; //testing
+
     // we will store all of our form data in this object
     if($stateParams.id) {
       Invitation.show({id: $stateParams.id}, function(data){

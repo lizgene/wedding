@@ -45,14 +45,14 @@ main {
 .animate-switch-container {
   position:relative;
   min-height: 100vh;
-  width: 800px;
+  max-width: 800px;
   overflow:hidden;
 }
 
 .animate-switch {
   padding:10px;
   min-height: 100vh;
-  width: 800px;
+  max-width: 800px;
 }
 
 .animate-switch.ng-animate {
